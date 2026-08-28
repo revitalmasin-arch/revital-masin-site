@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>רויטל מסין | מהנדסת פרויקטים</title>
+<style>
+  :root{
+    --cream:#faf3ea;
+    --terracotta:#d17a4a;
+    --terracotta-dark:#b5613a;
+    --teal:#204b4b;
+    --teal-light:#2f6b6b;
+    --text:#2b2420;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI', Tahoma, Arial, sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.7;
+  }
+  header{
+    background:linear-gradient(135deg,var(--teal),var(--teal-light));
+    color:#fff;
+    padding:90px 20px 70px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  header h1{
+    font-size:3rem;
+    letter-spacing:1px;
+    margin-bottom:10px;
+  }
+  header h2{
+    font-weight:400;
+    font-size:1.3rem;
+    color:var(--cream);
+    opacity:0.9;
+    margin-bottom:20px;
+  }
+  header p.tagline{
+    max-width:600px;
+    margin:0 auto;
+    font-size:1.05rem;
+    opacity:0.85;
+  }
+  nav{
+    background:var(--terracotta-dark);
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:14px;
+    flex-wrap:wrap;
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+  nav a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.95rem;
+    opacity:0.9;
+    transition:opacity .2s;
+  }
+  nav a:hover{opacity:1; text-decoration:underline;}
+  section{
+    max-width:900px;
+    margin:0 auto;
+    padding:70px 25px;
+  }
+  section h3{
+    font-size:2rem;
+    color:var(--teal);
+    margin-bottom:25px;
+    text-align:center;
+    position:relative;
+  }
+  section h3::after{
+    content:"";
+    display:block;
+    width:60px;
+    height:4px;
+    background:var(--terracotta);
+    margin:12px auto 0;
+    border-radius:2px;
+  }
+  .about-text{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto;
+    font-size:1.1rem;
+  }
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    margin-top:30px;
+  }
+  .card{
+    background:#fff;
+    border-radius:14px;
+    padding:30px 20px;
+    text-align:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 24px rgba(0,0,0,0.1);
+  }
+  .card .icon{
+    font-size:2.2rem;
+    margin-bottom:12px;
+    display:block;
+  }
+  .card h4{
+    color:var(--terracotta-dark);
+    margin-bottom:8px;
+    font-size:1.15rem;
+  }
+  .travel-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:16px;
+    margin-top:30px;
+  }
+  .travel-item{
+    aspect-ratio:1/1;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2.5rem;
+    color:#fff;
+    box-shadow:0 6px 16px rgba(0,0,0,0.1);
+  }
+  .travel-item:nth-child(1){background:linear-gradient(135deg,#d17a4a,#e59a6f);}
+  .travel-item:nth-child(2){background:linear-gradient(135deg,#204b4b,#2f6b6b);}
+  .travel-item:nth-child(3){background:linear-gradient(135deg,#b5613a,#d17a4a);}
+  .travel-item:nth-child(4){background:linear-gradient(135deg,#2f6b6b,#4a8a8a);}
+  .travel-item:nth-child(5){background:linear-gradient(135deg,#e59a6f,#d17a4a);}
+  .travel-item:nth-child(6){background:linear-gradient(135deg,#4a8a8a,#204b4b);}
+  .family-box{
+    background:#fff;
+    border-radius:16px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    max-width:700px;
+    margin:30px auto 0;
+  }
+  .family-box .icon-row{
+    font-size:2.4rem;
+    margin-bottom:16px;
+  }
+  #contact{
+    background:var(--teal);
+    color:#fff;
+    text-align:center;
+  }
+  #contact h3{color:#fff;}
+  #contact h3::after{background:var(--terracotta);}
+  #contact a.email{
+    display:inline-block;
+    margin-top:20px;
+    background:var(--terracotta);
+    color:#fff;
+    padding:14px 34px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    transition:background .2s;
+  }
+  #contact a.email:hover{background:var(--terracotta-dark);}
+  .socials{
+    margin-top:24px;
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    font-size:1.6rem;
+  }
+  .socials a{color:#fff; opacity:0.85; text-decoration:none;}
+  .socials a:hover{opacity:1;}
+  footer{
+    text-align:center;
+    padding:24px;
+    background:#1a3838;
+    color:#cfe0e0;
+    font-size:0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>רויטל מסין</h1>
+  <h2>מהנדסת פרויקטים | יצירתית • יעילה • נחושה</h2>
+  <p class="tagline">בונה פרויקטים בדיוק הנדסי ובלב יצירתי — ומאמינה שכל אתגר הוא הזדמנות לגלות עולם חדש.</p>
+</header>
+
+<nav>
+  <a href="#about">אודות</a>
+  <a href="#skills">חוזקות</a>
+  <a href="#travel">טיולים</a>
+  <a href="#family">משפחה</a>
+  <a href="#contact">יצירת קשר</a>
+</nav>
+
+<section id="about">
+  <h3>קצת עליי</h3>
+  <p class="about-text">
+    אני רויטל, מהנדסת פרויקטים עם תשוקה אמיתית ליצירתיות, לסדר ולפתרון בעיות מורכבות.
+    אני מאמינה שניהול פרויקט מוצלח משלב חשיבה אנליטית מדויקת עם דמיון ויכולת לראות את התמונה הגדולה.
+    מעבר לעבודה, אני אמא גאה לשלושה בנים, ואוהבת גדולה של טיולים וגילוי עולם ותרבויות חדשות.
+  </p>
+</section>
+
+<section id="skills">
+  <h3>חוזקות מקצועיות</h3>
+  <div class="cards">
+    <div class="card">
+      <span class="icon">🛠️</span>
+      <h4>ניהול פרויקטים</h4>
+      <p>תכנון, ביצוע ובקרה מדויקים מרעיון ועד תוצאה.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🎨</span>
+      <h4>יצירתיות</h4>
+      <p>חשיבה מחוץ לקופסה לפתרונות מקוריים ויעילים.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🧩</span>
+      <h4>פתרון בעיות</h4>
+      <p>זיהוי אתגרים ומציאת פתרונות מעשיים במהירות.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🤝</span>
+      <h4>הובלה וצוות</h4>
+      <p>הנעת צוותים ובעלי עניין לעבר מטרה משותפת.</p>
+    </div>
+  </div>
+</section>
+
+<section id="travel">
+  <h3>אוהבת לטייל</h3>
+  <p class="about-text">כל יעד חדש הוא השראה — לתרבות, לעיצוב ולדרך חדשה לחשוב.</p>
+  <div class="travel-grid">
+    <div class="travel-item">✈️</div>
+    <div class="travel-item">🗺️</div>
+    <div class="travel-item">🏔️</div>
+    <div class="travel-item">🏖️</div>
+    <div class="travel-item">🕌</div>
+    <div class="travel-item">🌍</div>
+  </div>
+</section>
+
+<section id="family">
+  <h3>המשפחה שלי</h3>
+  <div class="family-box">
+    <div class="icon-row">👦 👦 👦</div>
+    <p>אמא גאה לשלושה בנים מדהימים — הם ההשראה הגדולה ביותר שלי ללמידה, סבלנות ויצירתיות בכל יום מחדש.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h3>נשמח להתחבר</h3>
+  <p>לשיתופי פעולה, פרויקטים חדשים או סתם לומר שלום</p>
+  <a class="email" href="mailto:revitalmasin@gmail.com">revitalmasin@gmail.com</a>
+  <div class="socials">
+    <a href="#" title="LinkedIn">🔗 LinkedIn</a>
+    <a href="#" title="Instagram">📷 Instagram</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 רויטל מסין. כל הזכויות שמורות.
+</footer>
+
+</body>
+</html>
